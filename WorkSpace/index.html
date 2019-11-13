@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Access Technologies, Inc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,500i,700,900&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="img/oat_logo_clean.png" alt="Logo"></a>
+                </div>
+                <div class="nav navbar-nav">
+                    <h1>DocMD - Scan Explore (current)</h1>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="open-access-tech pb-20 border-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div id="wrapper">
+                        <div id="sidebar-wrapper">
+                            <aside id="sidebar">
+                                <ul id="sidemenu" class="sidebar-nav">
+                                    <li>
+                                        <a href="#">
+                                            <span class="sidebar-title">Overview</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+                                            <span class="sidebar-title">Current Snan</span>
+                                            <b class="caret"></b>
+                                        </a>
+                                        <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                                            <li><a href="#">Summary</a></li>
+                                            <li><a href="#">Explore</a></li>
+                                            <li><a href="#">Explore</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
+                                            <span class="sidebar-title">Previous Scans</span>
+                                            <b class="caret"></b>
+                                        </a>
+                                        <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
+                                            <li><a href="#">Summary</a></li>
+                                            <li><a href="#">Explore</a></li>
+                                            <li><a href="#">Explore</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="sidebar-title">Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="sidebar-title">OAT Link out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </aside>            
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="brand-label flex-display mb-20">
+                        <a href="#">Scans</a><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="#">Current</a><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        <a href="#">Remediation</a>
+                    </div>
+                    <ul class="nav nav-tabs mb-20">
+                        <li class="active"><a data-toggle="tab" href="#home">Summary</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Explore</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Remediation</a></li>
+                    </ul>
+                    <div class="bar-chart mb-20" id="resizable">
+                        <div id="chartContainer1" style="height: 100%; width: 100%;"></div>
+                    </div>
+                    <div class="table-wrapper mb-20">
+                        <table class="table table-hover table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="th-lg">
+                                        <a>Category <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Count
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Errors
+                                            <i class="fa fa-sort" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Warnings
+                                            <i class="fa fa-sort" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Info
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Pass
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Mark for Remediation
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>2345</td>
+                                    <td>1043</td>
+                                    <td>1026</td>
+                                    <td>775</td>
+                                    <td>1302</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox1">
+                                        <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td>1125</td>
+                                    <td>303</td>
+                                    <td>508</td>
+                                    <td>267</td>
+                                    <td>822</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox2">
+                                        <label class="form-check-label" for="checkbox2" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Word</td>
+                                    <td>320</td>
+                                    <td>195</td>
+                                    <td>217</td>
+                                    <td>109</td>
+                                    <td>125</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox3">
+                                        <label class="form-check-label" for="checkbox3" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Excel</td>
+                                    <td>425</td>
+                                    <td>287</td>
+                                    <td>120</td>
+                                    <td>86</td>
+                                    <td>138</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox4">
+                                        <label class="form-check-label" for="checkbox4" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>PPT</td>
+                                    <td>375</td>
+                                    <td>190</td>
+                                    <td>105</td>
+                                    <td>220</td>
+                                    <td>185</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox5">
+                                        <label class="form-check-label" for="checkbox5" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Epub</td>
+                                    <td>100</td>
+                                    <td>68</td>
+                                    <td>76</td>
+                                    <td>93</td>
+                                    <td>32</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox5">
+                                        <label class="form-check-label" for="checkbox5" class="label-table"></label>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn-remediation pull-right">Mark All for Remediation</a>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="table table-hover table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="th-lg">
+                                        <a>FileName <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Symbol
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Errors
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Warnings
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Info
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Pass
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                    <th class="th-lg">
+                                        <a href="">Mark for Remediation
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>2345</td>
+                                    <td>1043</td>
+                                    <td>1026</td>
+                                    <td>775</td>
+                                    <td>1302</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox1">
+                                        <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>PDF</td>
+                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
+                                    <td>303</td>
+                                    <td>508</td>
+                                    <td>267</td>
+                                    <td>822</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox2">
+                                        <label class="form-check-label" for="checkbox2" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Word</td>
+                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                    <td>195</td>
+                                    <td>217</td>
+                                    <td>109</td>
+                                    <td>125</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox3">
+                                        <label class="form-check-label" for="checkbox3" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Excel</td>
+                                    <td>425</td>
+                                    <td>287</td>
+                                    <td>120</td>
+                                    <td>86</td>
+                                    <td>138</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox4">
+                                        <label class="form-check-label" for="checkbox4" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>PPT</td>
+                                    <td>375</td>
+                                    <td>190</td>
+                                    <td>105</td>
+                                    <td>220</td>
+                                    <td>185</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox5">
+                                        <label class="form-check-label" for="checkbox5" class="label-table"></label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Epub</td>
+                                    <td>100</td>
+                                    <td>68</td>
+                                    <td>76</td>
+                                    <td>93</td>
+                                    <td>32</td>
+                                    <th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox5">
+                                        <label class="form-check-label" for="checkbox5" class="label-table"></label>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn-remediation pull-right">Mark All for Remediation</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 filters">
+                    <h4 class="flex-display"><i class="fa fa-filter fa-2x" aria-hidden="true"></i> Filters</h4>
+                    <div class="flex-row mt-20 mb-20">  
+                        <h5>Document type</h5>
+                        <a href="">PDF</a>
+                        <a href="">Word</a>
+                        <a href="">Excel</a>
+                        <a href="">PPT</a>
+                        <a href="">Epub</a>
+                    </div>
+                    <div class="flex-row mt-20 mb-20">  
+                        <h5>Issue Level</h5>
+                        <a href="">Errors</a>
+                        <a href="">Warnings</a>
+                        <a href="">Info</a>
+                        <a href="">Pass</a>
+                    </div>
+                    <div class="flex-row mt-20 mb-20">  
+                        <h5>Issue Type</h5>
+                        <a href="">Alt-Text</a>
+                        <a href="">Document Properties</a>
+                        <a href="">Document Structure</a>
+                    </div>
+                    <div class="flex-row mt-20 mb-20">  
+                        <h5>Scan Root</h5>
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="fa fa-sitemap fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="media-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search" value="Current Root: https://www.SomeSite.com">
+                                    </div>
+                                    <div class="form-group relative">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row mt-20 mb-20">  
+                        <h5>Date Range</h5>
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="media-body">
+                                <form action="">
+                                    <div class="form-group relative">
+                                        <input type="text" class="form-control" placeholder="Start Date">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="form-group relative">
+                                        <input type="text" class="form-control" placeholder="End Date">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="department">
+                        <form class="" action="/action_page.php">
+                            <div class="form-group flex-row mb-20">
+                                <label for="">Department</label>
+                                <select class="form-control">
+                                    <option value="">Select Department</option>
+                                    <option value="">Marketing</option>
+                                    <option value="">Manufacturing</option>
+                                    <option value="">Sales</option>
+                                </select>
+                            </div>  
+                            <div class="form-group">
+                                <label for="">Traffic</label>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-sitemap fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="radio mb-0">
+                                            <label><input type="radio" name="optradio" checked>Rank files by page traffic</label>
+                                        </div>
+                                        <div class="radio mb-0">
+                                            <label><input type="radio" name="optradio">Rank files by download count</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="">Advanced Filters (Document Properties)</label>
+                            <div class="btn-search">
+                                <div class="media">
+                                    <div class="media-left">
+                                    </div>
+                                    <div class="media-body">
+                                        <a href="" class="btn-advanced-search">Open Advanced Search</a>
+                                        <p>(e.g. filter by authoring tool)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer mt-20 mb-20">
+        <div class="container-fluid">
+            <div class="row">
+                <h4 class="text-center mb-20">&copy; 2019 Open Access Technologies, Inc. All Rights Reserved.</h4>
+                <p>This is the explore page changing values in the 'Filters' section updates the contents of the graph, table, and file list</p>
+                <p>Clicking on a file in the file list opens the single file view has a modal</p>
+                <h5>Please note <span> the alternate views</span></h5>
+                <h5><i>Questions</i></h5>
+                <ol>
+                    <li>Dow we like the send button or should it be 'Mark for EnableXpress'</li>
+                    <li>Dow we like the send button or should it be 'Mark for EnableXpress'</li>
+                </ol>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
